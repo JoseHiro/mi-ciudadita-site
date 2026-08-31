@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Ciudadita — El clima de México, hecho a mano</title>
+    <meta name="description" content="Ciudades miniatura de México con el clima en vivo. Tu ciudad favorita en un widget vivo. Para quienes aman México.">
+    <meta property="og:title" content="Mi Ciudadita">
+    <meta property="og:description" content="Elige tu ciudad favorita de México y llévala en tu pantalla de inicio como un widget miniatura vivo.">
+    <meta property="og:type" content="website">
+    <style>
+        :root {
+            --accent: #3F9AA6;
+            --accent-dark: #2A6D75;
+            --accent-light: #6ABAC3;
+            --bg: #F6F1EB;
+            --text: #172126;
+            --text-secondary: #6E7A80;
+            --card: #ffffff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        header {
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-light), var(--accent), var(--accent-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+        nav a:hover { color: var(--accent); }
+        .hero {
+            text-align: center;
+            padding: 60px 24px 80px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero .badge {
+            display: inline-flex;
+            gap: 6px;
+            align-items: center;
+            background: rgba(63, 154, 166, 0.10);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+        h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--accent-light), var(--accent), var(--accent-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle {
+            font-size: clamp(16px, 2vw, 20px);
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #43A2AC, #2F7F8D);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 8px 24px rgba(63, 154, 166, 0.30);
+            transition: transform 0.2s;
+        }
+        .cta:hover { transform: translateY(-2px); }
+        .cta-note {
+            display: block;
+            margin-top: 12px;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+        .cities-strip {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 40px auto;
+            flex-wrap: wrap;
+            max-width: 600px;
+        }
+        .city-pill {
+            padding: 6px 12px;
+            background: white;
+            border-radius: 100px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        section {
+            padding: 80px 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        section h2 {
+            font-size: clamp(28px, 4vw, 36px);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .feature {
+            background: var(--card);
+            padding: 28px;
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .feature-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+        .feature h3 { font-size: 17px; margin-bottom: 8px; font-weight: 600; }
+        .feature p { color: var(--text-secondary); font-size: 14px; }
+        .pricing {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+        .plan {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 28px 24px;
+            text-align: center;
+            border: 1px solid rgba(23, 33, 38, 0.08);
+        }
+        .plan.recommended {
+            border-color: var(--accent);
+            box-shadow: 0 8px 32px rgba(63, 154, 166, 0.15);
+            position: relative;
+        }
+        .plan.recommended::before {
+            content: "Mejor valor";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+        .plan-name { font-size: 14px; color: var(--text-secondary); margin-bottom: 12px; }
+        .plan-price { font-size: 32px; font-weight: 700; margin-bottom: 4px; }
+        .plan-note { font-size: 12px; color: var(--text-secondary); margin-bottom: 20px; }
+        .plan-tier { font-size: 13px; color: var(--accent); font-weight: 600; }
+        footer {
+            padding: 40px 24px 60px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+        footer a { color: var(--text-secondary); margin: 0 10px; text-decoration: none; }
+        footer a:hover { color: var(--accent); }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0F1418;
+                --text: #F5EBDD;
+                --text-secondary: #94A3AB;
+                --card: #1A2226;
+            }
+            .plan { border-color: rgba(255, 255, 255, 0.08); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">✨ Mi Ciudadita</div>
+        <nav>
+            <a href="#features">Características</a>
+            <a href="#pricing">Precio</a>
+            <a href="/support">Soporte</a>
+            <a href="/privacy">Privacidad</a>
+            <a href="/terms">Términos</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="badge">🇲🇽 Tu ciudad, siempre contigo</div>
+        <h1>El clima de México, vivo en tu pantalla</h1>
+        <p class="subtitle">Tu ciudad favorita — donde vives, donde viajas, donde vive tu familia — como un widget miniatura vivo que cambia con la luz del día.</p>
+        <a href="#" class="cta">Descargar en App Store</a>
+        <small class="cta-note">Próximamente · iPhone 17+ · Gratis con opciones Premium</small>
+        <div class="cities-strip">
+            <span class="city-pill">CDMX</span>
+            <span class="city-pill">Guadalajara</span>
+            <span class="city-pill">Cancún</span>
+            <span class="city-pill">Oaxaca</span>
+            <span class="city-pill">Tulum</span>
+            <span class="city-pill">Puerto Vallarta</span>
+            <span class="city-pill">Monterrey</span>
+            <span class="city-pill">Mérida</span>
+            <span class="city-pill">+ 18 más</span>
+        </div>
+    </section>
+
+    <section id="features">
+        <h2>Para quienes aman México</h2>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon" style="background: rgba(232, 135, 59, 0.12); color: #E8873B;">🏡</div>
+                <h3>Tu ciudad, siempre contigo</h3>
+                <p>Donde vives, donde viajas, donde vive tu familia. Elige tu ciudad favorita y llévala en tu pantalla.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon" style="background: rgba(78, 175, 109, 0.12); color: #4EAF6D;">🗺</div>
+                <h3>Toda la colección de México</h3>
+                <p>Del desierto de Sonora al Caribe de Cancún. Ciudades curadas, no una lista mundial genérica.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon" style="background: rgba(63, 154, 166, 0.12); color: #3F9AA6;">☀️</div>
+                <h3>Vive las 24 horas del día</h3>
+                <p>Mañana, día, atardecer, noche. Tu ciudad cambia con la luz real, no un ícono estático.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon" style="background: rgba(245, 178, 64, 0.12); color: #F5B240;">✨</div>
+                <h3>Widget único, hecho a tu gusto</h3>
+                <p>Colores, fuentes, posiciones — personaliza cada detalle. Único como tú.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon" style="background: rgba(138, 114, 181, 0.12); color: #8A72B5;">🏛</div>
+                <h3>Guía local incluida</h3>
+                <p>Actividades, comida, historia de cada ciudad — el clima con contexto cultural.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon" style="background: rgba(64, 191, 172, 0.12); color: #40BFAC;">🔒</div>
+                <h3>Sin anuncios · Sin rastreo</h3>
+                <p>No recopilamos datos personales. Tu ubicación no sale del dispositivo.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing">
+        <h2>Precio simple, sin sorpresas</h2>
+        <div class="pricing">
+            <div class="plan">
+                <div class="plan-name">Gratis</div>
+                <div class="plan-price">$0</div>
+                <div class="plan-note">Para siempre</div>
+                <p style="font-size: 13px; color: var(--text-secondary);">1 ciudad · widget básico · clima en vivo</p>
+            </div>
+            <div class="plan recommended">
+                <div class="plan-name">Premium Anual</div>
+                <div class="plan-price">MX$249</div>
+                <div class="plan-note">≈ MX$21/mes · US $14.99</div>
+                <p style="font-size: 13px; color: var(--text-secondary);">Toda la colección · ciclo del día · widget personalizable</p>
+                <div class="plan-tier" style="margin-top: 12px;">🏆 66% menos que mensual</div>
+            </div>
+            <div class="plan">
+                <div class="plan-name">Premium Mensual</div>
+                <div class="plan-price">MX$49</div>
+                <div class="plan-note">Por mes · US $2.99</div>
+                <p style="font-size: 13px; color: var(--text-secondary);">Todas las funciones · cancela cuando quieras</p>
+            </div>
+        </div>
+        <p style="text-align: center; font-size: 12px; color: var(--text-secondary); margin-top: 40px;">
+            Cancela cuando quieras desde Ajustes · Sin renovaciones sorpresa
+        </p>
+    </section>
+
+    <footer>
+        <p>Mi Ciudadita · Hecho con 🇲🇽 amor por un desarrollador independiente</p>
+        <p style="margin-top: 12px;">
+            <a href="/support">Soporte</a> ·
+            <a href="/privacy">Política de privacidad</a> ·
+            <a href="/terms">Términos de uso</a> ·
+            <a href="mailto:support@miciudadita.app">Contacto</a>
+        </p>
+    </footer>
+</body>
+</html>

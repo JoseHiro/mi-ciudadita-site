@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soporte · Support — Mi Ciudadita</title>
+    <meta name="description" content="Ayuda, contacto y preguntas frecuentes de Mi Ciudadita. Support, contact, and FAQ.">
+    <style>
+        :root {
+            --accent: #3F9AA6;
+            --accent-dark: #2A6D75;
+            --bg: #F6F1EB;
+            --text: #172126;
+            --text-secondary: #6E7A80;
+            --card: #ffffff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 16px;
+            font-size: 14px;
+        }
+        nav a:hover { color: var(--accent); }
+        h1 { font-size: 32px; margin-bottom: 8px; }
+        .lang-hint { color: var(--text-secondary); font-size: 13px; margin-bottom: 32px; }
+        h2 {
+            font-size: 22px;
+            margin: 48px 0 20px;
+            color: var(--accent);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            padding-bottom: 8px;
+        }
+        h3 { font-size: 17px; margin: 24px 0 8px; }
+        p, ul { margin-bottom: 12px; color: var(--text); }
+        ul { padding-left: 24px; }
+        li { margin-bottom: 6px; }
+        strong { color: var(--text); }
+        a { color: var(--accent); }
+        a:hover { color: var(--accent-dark); }
+        .card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            margin-bottom: 24px;
+        }
+        .contact-block {
+            background: linear-gradient(135deg, rgba(63, 154, 166, 0.10), rgba(63, 154, 166, 0.04));
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .contact-block p { font-size: 15px; }
+        .contact-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #43A2AC, #2F7F8D);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            margin-top: 16px;
+            box-shadow: 0 4px 16px rgba(63, 154, 166, 0.30);
+        }
+        .contact-cta:hover { color: white; transform: translateY(-1px); }
+        details {
+            background: var(--card);
+            border-radius: 14px;
+            padding: 16px 20px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+        details summary {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 15px;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::after {
+            content: "+";
+            color: var(--accent);
+            font-size: 22px;
+            font-weight: 400;
+            transition: transform 0.2s;
+        }
+        details[open] summary::after { content: "−"; }
+        details[open] { padding-bottom: 20px; }
+        details p, details ul { margin-top: 12px; font-size: 14px; color: var(--text-secondary); }
+        .divider { border: 0; border-top: 2px dashed rgba(0,0,0,0.1); margin: 60px 0; }
+        footer { text-align: center; color: var(--text-secondary); font-size: 13px; margin-top: 40px; }
+        footer a { color: var(--text-secondary); margin: 0 8px; }
+        footer a:hover { color: var(--accent); }
+        @media (prefers-color-scheme: dark) {
+            :root { --bg: #0F1418; --text: #F5EBDD; --text-secondary: #94A3AB; --card: #1A2226; }
+            h2 { border-color: rgba(255,255,255,0.08); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="logo">✨ Mi Ciudadita</a>
+            <nav>
+                <a href="/">Inicio</a>
+                <a href="/privacy">Privacidad</a>
+                <a href="/terms">Términos</a>
+            </nav>
+        </header>
+
+        <!-- ============= ESPAÑOL ============= -->
+        <h1>Soporte</h1>
+        <p class="lang-hint">Ayuda con Mi Ciudadita — <a href="#en">English below ↓</a></p>
+
+        <div class="contact-block">
+            <p><strong>¿Necesitas ayuda?</strong></p>
+            <p>Escríbenos y respondemos en 1–2 días hábiles.</p>
+            <a href="mailto:support@miciudadita.app" class="contact-cta">support@miciudadita.app</a>
+        </div>
+
+        <h2>Preguntas frecuentes</h2>
+
+        <details>
+            <summary>¿En qué dispositivos funciona Mi Ciudadita?</summary>
+            <p>Mi Ciudadita funciona en iPhone (iOS 17 o superior) y iPad (iPadOS 17 o superior). La app está optimizada para orientación vertical.</p>
+        </details>
+
+        <details>
+            <summary>Los widgets no aparecen en mi pantalla de inicio</summary>
+            <p>Sigue estos pasos:</p>
+            <ul>
+                <li>Mantén presionada la pantalla de inicio hasta que los íconos vibren</li>
+                <li>Toca el botón <strong>+</strong> en la esquina superior izquierda</li>
+                <li>Busca <strong>"Mi Ciudadita"</strong></li>
+                <li>Elige el tamaño y toca <strong>Agregar Widget</strong></li>
+            </ul>
+            <p>Si el nombre no aparece en la búsqueda, abre la app al menos una vez y espera unos segundos.</p>
+        </details>
+
+        <details>
+            <summary>Cambié los ajustes del widget pero no se actualiza</summary>
+            <p>El sistema puede tardar unos segundos en refrescar el widget. Si después de 30 segundos no cambia:</p>
+            <ul>
+                <li>Vuelve a la pantalla de inicio</li>
+                <li>Mantén presionado el widget y elige <strong>Editar Widget</strong></li>
+                <li>Cierra el editor sin cambiar nada — iOS forzará una actualización</li>
+            </ul>
+        </details>
+
+        <details>
+            <summary>¿Cómo cancelo mi suscripción Premium?</summary>
+            <p>Todas las suscripciones se manejan desde tu Apple ID:</p>
+            <ul>
+                <li>Abre <strong>Ajustes</strong> en tu iPhone o iPad</li>
+                <li>Toca tu <strong>nombre</strong> arriba</li>
+                <li>Selecciona <strong>Suscripciones</strong></li>
+                <li>Elige <strong>Mi Ciudadita Premium</strong> → <strong>Cancelar</strong></li>
+            </ul>
+            <p>Seguirás teniendo Premium hasta el final del periodo pagado.</p>
+        </details>
+
+        <details>
+            <summary>Compré Premium en otro dispositivo, ¿cómo lo restauro?</summary>
+            <p>Ve a <strong>Ajustes</strong> dentro de la app y toca <strong>Restaurar compras</strong>. Asegúrate de haber iniciado sesión con el mismo Apple ID que usaste para comprar.</p>
+        </details>
+
+        <details>
+            <summary>¿Mi ubicación se envía a algún servidor?</summary>
+            <p>No. Mi Ciudadita no accede a tu ubicación GPS. La app usa las ciudades que tú eliges — no rastreamos dónde estás.</p>
+            <p>Los datos del clima se obtienen de Open-Meteo usando solo el nombre de la ciudad. Ver <a href="/privacy">Política de Privacidad</a>.</p>
+        </details>
+
+        <details>
+            <summary>¿Puedo pedir una ciudad nueva?</summary>
+            <p>¡Sí! Escríbenos a <a href="mailto:support@miciudadita.app">support@miciudadita.app</a> con el nombre de la ciudad. Priorizamos ciudades mexicanas para futuras actualizaciones.</p>
+        </details>
+
+        <details>
+            <summary>El clima parece incorrecto</summary>
+            <p>Los datos vienen de Open-Meteo, una fuente meteorológica pública. Ocasionalmente pueden diferir de otras apps por unos grados. Si ves un error grande o persistente, escríbenos con el nombre de la ciudad y la hora.</p>
+        </details>
+
+        <hr class="divider">
+
+        <!-- ============= ENGLISH ============= -->
+        <h1 id="en">Support</h1>
+        <p class="lang-hint">Help with Mi Ciudadita — <a href="#top">Español arriba ↑</a></p>
+
+        <div class="contact-block">
+            <p><strong>Need help?</strong></p>
+            <p>Email us and we'll reply within 1–2 business days.</p>
+            <a href="mailto:support@miciudadita.app" class="contact-cta">support@miciudadita.app</a>
+        </div>
+
+        <h2>Frequently asked questions</h2>
+
+        <details>
+            <summary>Which devices does Mi Ciudadita support?</summary>
+            <p>Mi Ciudadita runs on iPhone (iOS 17 or later) and iPad (iPadOS 17 or later). The app is designed for portrait orientation.</p>
+        </details>
+
+        <details>
+            <summary>Widgets don't show up on my Home Screen</summary>
+            <p>Follow these steps:</p>
+            <ul>
+                <li>Long-press an empty area of the Home Screen until the icons wiggle</li>
+                <li>Tap the <strong>+</strong> button in the top-left corner</li>
+                <li>Search for <strong>"Mi Ciudadita"</strong></li>
+                <li>Pick a size and tap <strong>Add Widget</strong></li>
+            </ul>
+            <p>If the name doesn't appear in the search, open the app once and wait a few seconds.</p>
+        </details>
+
+        <details>
+            <summary>I changed widget settings but the widget didn't update</summary>
+            <p>iOS may take a few seconds to refresh the widget. If it still doesn't change after 30 seconds:</p>
+            <ul>
+                <li>Return to the Home Screen</li>
+                <li>Long-press the widget and choose <strong>Edit Widget</strong></li>
+                <li>Close the editor without changing anything — this forces a refresh</li>
+            </ul>
+        </details>
+
+        <details>
+            <summary>How do I cancel my Premium subscription?</summary>
+            <p>All subscriptions are managed through your Apple ID:</p>
+            <ul>
+                <li>Open <strong>Settings</strong> on your iPhone or iPad</li>
+                <li>Tap your <strong>name</strong> at the top</li>
+                <li>Choose <strong>Subscriptions</strong></li>
+                <li>Select <strong>Mi Ciudadita Premium</strong> → <strong>Cancel Subscription</strong></li>
+            </ul>
+            <p>You'll keep Premium features until the end of the current billing period.</p>
+        </details>
+
+        <details>
+            <summary>I bought Premium on another device. How do I restore it?</summary>
+            <p>Go to <strong>Settings</strong> inside the app and tap <strong>Restore Purchases</strong>. Make sure you're signed in with the same Apple ID you used to buy Premium.</p>
+        </details>
+
+        <details>
+            <summary>Does the app send my location to a server?</summary>
+            <p>No. Mi Ciudadita does not access your GPS. The app uses the cities you pick — we don't track your location.</p>
+            <p>Weather data comes from Open-Meteo using only the city name. See <a href="/privacy">Privacy Policy</a>.</p>
+        </details>
+
+        <details>
+            <summary>Can I request a new city?</summary>
+            <p>Yes! Email <a href="mailto:support@miciudadita.app">support@miciudadita.app</a> with the city name. Mexican cities are prioritized for upcoming updates.</p>
+        </details>
+
+        <details>
+            <summary>The weather looks wrong</summary>
+            <p>Data comes from Open-Meteo, a public weather source. It may occasionally differ from other apps by a few degrees. If you notice a large or persistent error, email us with the city name and the time you saw it.</p>
+        </details>
+
+        <footer>
+            <p>Mi Ciudadita · Hecho con 🇲🇽 amor</p>
+            <p style="margin-top: 12px;">
+                <a href="/">Inicio</a> ·
+                <a href="/privacy">Privacidad</a> ·
+                <a href="/terms">Términos</a> ·
+                <a href="mailto:support@miciudadita.app">Contacto</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
